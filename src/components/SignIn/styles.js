@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import {Button, Form, Input} from "antd";
-import Orange from "../../static/images/circleOrange.svg";
+import { Button, Form, Input } from "antd";
 
 const StyledDiv = styled.div`
-  background: linear-gradient(#FCFCFD, #6EC1E4);
+  background: linear-gradient(#fefae0, #e5e5e5);
   width: 100%;
   height: 100vh;
   display: flex;
@@ -12,65 +11,58 @@ const StyledDiv = styled.div`
 `;
 const StyledForm = styled(Form)`
   position: relative;
-  width: 100%;
-  box-shadow: 0 24px 56px 0 rgba(5, 57, 236, 0.04);
-  background-color: #FFFFFF99;
-  padding: 2rem 1rem;
-  border-radius: 5px;
-  -webkit-box-shadow: 0 24px 56px 0 rgba(5, 57, 236, 0.04);
-  -moz-box-shadow: 0 24px 56px 0 rgba(5, 57, 236, 0.04);
+  width: 25rem;
+  box-shadow: -1px -1px 6px 1px rgba(0,0,0,0.1);
+  background-color: #f8f9fa;
+  padding: 3rem;
+  border-radius: 10px;
   z-index: 1;
 `;
 
-const CircleGreenDiv = styled.div`
-  position: absolute;
-  bottom: -200px;
-  left: 40px;
-`
-
-const CircleBlueDiv = styled.div`
-  position: absolute;
-  top: -200px;
-  left: -200px;
-    //background-image: url(${Orange});
-`
-
-const CircleOrangeDiv = styled.div`
-  position: absolute;
-  bottom: -25px;
-  right: -25px;
-`
-
-const Div = styled.div`
-  width: 25%;
-  @media only screen and (max-width: 1280px) {
-    width: 40%;
-  }
-  @media only screen and (max-width: 960px) {
-    width: 50%;
-  }
-  @media only screen and (max-width: 600px) {
-    width: 90%;
-  }
-  position: relative;
-`
-
 const StyledInput = styled(Input)`
-  height: 2.5rem;
-  border-radius: 5px;
-  padding: 2px 5px;
+  outline: none;
+  border: none;
+  color: #333;
+  line-height: 1.2;
+  font-size: 18px;
+  display: block;
+  width: 100%;
+  background: 0 0;
+  height: 60px;
+  padding: 0 20px
 `
+const InputWrapper = styled.div`
+  width: 100%;
+  position: relative;
+  background-color: #f7f7f7;
+  border: 1px solid #e6e6e6;
+  border-radius:10px;
+`;
 
 const StyledButton = styled(Button)`
-  background-color: #6EC1E4;
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 15px;
+  width: 100%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color .4s;
+  &:hover {
+    background-color: #5c6b73
+  };
+  &:active {
+    background-color: #000
+  }
 `
 export {
-    StyledDiv,
-    StyledForm,
-    CircleGreenDiv,
-    CircleBlueDiv,
-    CircleOrangeDiv,
-    Div,
-    StyledInput,
-    StyledButton
+  StyledDiv,
+  StyledForm,
+  StyledInput,
+  StyledButton,
+  InputWrapper
 }
