@@ -10,7 +10,6 @@ import {
 
 const SignIn = () => {
     const onFinish = async (values: any) => {
-        console.log(values)
         await auth.signInWithEmailAndPassword(values.username, values.password)
     };
     return (
