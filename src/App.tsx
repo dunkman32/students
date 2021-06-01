@@ -1,9 +1,18 @@
 import React from 'react';
-import Components from "./components";
+import {Provider} from 'react-redux'
+import './App.css';
+import Components from './components'
+import {persistor, store} from './redux/store'
+import {PersistGate as BasePersistGate} from 'redux-persist/integration/react'
+import 'antd/dist/antd.css';
 
-function App() {
+const App = () => {
   return (
-      <Components />
+      <Provider store={store}>
+        <BasePersistGate persistor={persistor}>
+          <Components />
+        </BasePersistGate>
+      </Provider>
   );
 }
 

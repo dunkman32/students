@@ -39,10 +39,11 @@ export const removeFilm = (id: string) => {
     return COLLECTION.doc(id).delete()
 }
 
-
 export const updateStudent = (data: any) => {
     let prod = COLLECTION.doc(data.id)
     return prod.update(data)
 }
+
+export const getStudent = (id: string) => COLLECTION.doc(id).get()
 
 
