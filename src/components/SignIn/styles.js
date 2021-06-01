@@ -40,6 +40,7 @@ const InputWrapper = styled.div`
 `;
 
 const StyledButton = styled(Button)`
+  height: 60px;
   background-color: #333;
   color: white;
   padding: 15px;

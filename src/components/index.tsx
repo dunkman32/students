@@ -1,16 +1,32 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import Main from '../components/main'
 import SignIn from '../components/SignIn'
 import {auth} from '../adapters/helpers'
+import {getStudent} from '../adapters/users'
+import {useDispatch, useSelector} from 'react-redux'
+import {actions, selectors} from '../modules/Auth';
 
 const Components = () => {
-    const [user, setUser] = useState<any>(null)
+    const user = useSelector(selectors.selectUser)
+    const dispatch = useDispatch()
+
     useEffect(() => {
         auth.onAuthStateChanged((user: any) => {
-            setUser(user)
+            if(user) {
+                const tmpUser = {
+                    ...user.providerData[0],
+                    id: user.uid
+                }
+                getStudent(user.uid).then((r) => {
+                    dispatch(actions.user.add({
+                        ...tmpUser,
+                        ...r.data()
+                    }))
+                }).catch((e) => console.log(e))
+            }
         });
-    }, []);
+    }, [dispatch]);
 
     return user ? (
             <Router>
