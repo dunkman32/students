@@ -11,7 +11,7 @@ const StyledDiv = styled.div`
 `;
 const StyledForm = styled(Form)`
   position: relative;
-  width: 25rem;
+  width: 30rem;
   box-shadow: -1px -1px 6px 1px rgba(0,0,0,0.1);
   background-color: #f8f9fa;
   padding: 3rem;
@@ -29,14 +29,14 @@ const StyledInput = styled(Input)`
   width: 100%;
   background: 0 0;
   height: 60px;
-  padding: 0 20px
+  padding: 0 20px;
 `
 const InputWrapper = styled.div`
   width: 100%;
   position: relative;
   background-color: #f7f7f7;
   border: 1px solid #e6e6e6;
-  border-radius:10px;
+  border-radius: 4px;
 `;
 
 const StyledButton = styled(Button)`
