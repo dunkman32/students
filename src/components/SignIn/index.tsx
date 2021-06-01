@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Form } from 'antd';
 import { auth } from '../../adapters/helpers';
 import {
@@ -5,13 +6,34 @@ import {
     StyledDiv,
     StyledForm,
     StyledInput,
-    InputWrapper
+    InputWrapper,
+    ErrorWrapper
 } from './styles'
 
+interface ErrState {
+    code?: string,
+    message?: string,
+    a?: unknown
+}
+
 const SignIn = () => {
+    const [loginErr, setLoginErr] = useState<ErrState>({});
+    const [form] = Form.useForm();
+
     const onFinish = async (values: any) => {
-        await auth.signInWithEmailAndPassword(values.username, values.password)
+        try {
+            await auth.signInWithEmailAndPassword(values.username, values.password);
+            setLoginErr({});
+        } catch (error) {
+            onReset();
+            setLoginErr(error);
+        }
     };
+
+    const onReset = () => {
+        form.resetFields();
+    };
+
     return (
         <StyledDiv>
             <StyledForm
@@ -19,6 +41,7 @@ const SignIn = () => {
                 className="login-form"
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
+                onReset={onReset}
             >
                 <Form.Item
                     name="username"
@@ -47,6 +70,9 @@ const SignIn = () => {
                         Log in
                     </StyledButton>
                 </Form.Item>
+                {Object.keys(loginErr).length ? <ErrorWrapper>
+                    {loginErr?.code === 'auth/user-not-found' ? "User doesn't exist" : 'Incorect Credintials'}
+                </ErrorWrapper> : null}
             </StyledForm>
         </StyledDiv>
     )

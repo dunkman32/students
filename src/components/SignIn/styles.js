@@ -58,11 +58,21 @@ const StyledButton = styled(Button)`
   &:active {
     background-color: #000
   }
-`
+`;
+
+const ErrorWrapper = styled.div`
+  flex: 1;
+  text-align: center;
+  padding-top: 20px;
+  text-transform: uppercase;
+  color: red; 
+`;
+
 export {
   StyledDiv,
   StyledForm,
   StyledInput,
   StyledButton,
-  InputWrapper
+  InputWrapper,
+  ErrorWrapper
 }
