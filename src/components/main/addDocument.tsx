@@ -1,82 +1,85 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import {Button, Form, Input, Modal, Tooltip} from 'antd';
-import {EditTwoTone, FileAddTwoTone} from '@ant-design/icons'
-import {addDocument} from '../../adapters/upload';
-import {useSelector} from "react-redux";
-import {selectors} from '../../modules/Auth';
+import { useCallback, useState, Fragment } from 'react';
+import { Button, Form, Input, Modal, Tooltip } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import { addDocument } from '../../adapters/upload';
+import { useSelector } from "react-redux";
+import { selectors } from '../../modules/Auth';
 
 const AddModal = () => {
     const [form] = Form.useForm();
     const user = useSelector(selectors.selectUser)
     const [visible, setVisible] = useState(false);
+    const [confirmLoading, setConfirmLoading] = useState(false);
     const [file, setFile] = useState(null);
 
     const onCreate = (values: any) => {
-        setVisible(false);
-        add(values)
+        if (values.desc || values.file) {
+            setConfirmLoading(true);
+            uploadData(values);
+        } else return null;
     };
 
-    const submit = () => {
+    const onSubmit = () => {
         form
             .validateFields()
             .then(values => {
                 onCreate(values)
-                form.resetFields();
             })
             .catch(info => {
                 console.log('Validate Failed:', info);
             })
-    }
-    const add = useCallback((o) => {
-        console.log(user);
+    };
+
+    const uploadData = useCallback((o) => {
         addDocument({
             userId: user.uid,
             username: user.name,
             ...o,
             file,
             createdAt: new Date().getTime()
-        }).then((r) => {
-            console.log(r, 'success');
+        }).then(() => {
+            setConfirmLoading(false);
+            setVisible(false);
+            form.resetFields();
         }).catch((err) => console.log(err))
-    }, [user, file])
+    }, [user, file]);
 
-    const change = (e: any) => {
+    const onFileChoose = (e: any) => {
         const files = e.target.files;
         setFile(files[0])
-    }
+    };
 
     return (
-        <>
-            <Tooltip title="Add student" placement="bottom">
-                <Button onClick={() => setVisible(true)}>
-                    {
-                        <FileAddTwoTone twoToneColor="#52c41a"/>
-                    }
+        <Fragment>
+            <Tooltip title="დოკუმენტის ატვირთვა" placement="bottom">
+                <Button onClick={() => setVisible(true)} style={{ marginRight: 10 }} type="primary" icon={<UploadOutlined style={{ fontSize: 15 }} />} size={'middle'}>
+                    ატვირთვა
                 </Button>
             </Tooltip>
             <Modal
-                title="Add Student"
+                title="დოკუმენტის ატვირვა"
                 centered
                 visible={visible}
-                onOk={submit}
-                onCancel={() => setVisible(false)}
-                width={1000}>
+                onOk={onSubmit}
+                confirmLoading={confirmLoading}
+                onCancel={() => { setVisible(false); form.resetFields() }}
+                width={700}>
                 <Form
                     form={form}
-                    labelCol={{span: 4}}
-                    wrapperCol={{span: 14}}
+                    labelCol={{ span: 4 }}
+                    wrapperCol={{ span: 14 }}
                     layout="horizontal"
                 >
-                    <Form.Item name={'desc'} label="აღწერა">
-                        <Input/>
+                    <Form.Item name={'ფაილი'} label="ფაილი" rules={[{ required: true, message: 'აირჩიეთ ფაილი' }]}>
+                        <Input type='file' onChange={onFileChoose} />
                     </Form.Item>
-                    <Form.Item name={'file'} label="file">
-                        <input type='file' onChange={change}/>
+                    <Form.Item name={'desc'} label="კომენტარი" rules={[{ required: true, message: 'შეიყვანეთ კომენტარი' }]}>
+                        <Input placeholder={'შეიტანეთ კომენტარი...'} />
                     </Form.Item>
                 </Form>
             </Modal>
-        </>
+        </Fragment>
     );
 };
 
-export default AddModal
+export default AddModal;

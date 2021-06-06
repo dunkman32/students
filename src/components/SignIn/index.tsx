@@ -45,20 +45,20 @@ const SignIn = () => {
             >
                 <Form.Item
                     name="username"
-                    rules={[{ required: true, message: 'Please input your Username!' }]}
+                    rules={[{ required: true, message: 'შეიყვანეთ მომხმარებლის სახელი' }]}
                     style={{ marginBottom: 25, color: 'red' }}
                 >
                     <InputWrapper>
-                        <StyledInput type={'email'} placeholder={'Enter Email'} />
+                        <StyledInput type={'email'} placeholder={'შეიყვანეთ ელ-ფოსტა'} />
                     </InputWrapper>
                 </Form.Item>
                 <Form.Item
                     name="password"
-                    rules={[{ required: true, message: 'Please input your Password!' }]}
+                    rules={[{ required: true, message: 'შეიყვანეთ პაროლი' }]}
                     style={{ color: 'red' }}
                 >
                     <InputWrapper>
-                        <StyledInput type="password" placeholder={'Enter Password'} />
+                        <StyledInput type="password" placeholder={'შეიყვანეთ პაროლი'} />
                     </InputWrapper>
                 </Form.Item>
                 <Form.Item>
@@ -67,11 +67,11 @@ const SignIn = () => {
                         type="primary"
                         htmlType="submit"
                         className="login-form-button">
-                        Log in
+                        შესვლა
                     </StyledButton>
                 </Form.Item>
                 {Object.keys(loginErr).length ? <ErrorWrapper>
-                    {loginErr?.code === 'auth/user-not-found' ? "User doesn't exist" : 'Incorect Credintials'}
+                    {loginErr?.code === 'auth/user-not-found' ? "მომხმარებელი არ არსებობს" : 'არასწორი მონაცემები'}
                 </ErrorWrapper> : null}
             </StyledForm>
         </StyledDiv>
