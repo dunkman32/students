@@ -28,6 +28,8 @@ const Components = () => {
         });
     }, [dispatch]);
 
+    console.log(user, 'this is me');
+
     return user ? (
             <Router>
                 <Switch>

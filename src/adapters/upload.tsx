@@ -58,15 +58,17 @@ interface Students {
 export const addDocument = async (message: Students) => {
     try {
         const uid = message.userId
-        const documentName: string = `documents/${uid}_${message.createdAt}.jpg`
+        const name = `${uid}_${message.createdAt}`
+        const documentName: string = `documents/${name}.jpg`
         await storage.ref().child(documentName).put(message.file)
         const file = await takeImg(documentName)
-        const userOBJ = {
+        const documentObject = {
             ...omit(message, ['file']),
-            role: 'student',
-            file
+            file,
+            status: 'Pending'
         }
-        return await COLLECTION.doc(uid).set(userOBJ)
+        console.log('qNI9xVHbKTRAuxGgbk3loWJ7IXm2', documentObject)
+        return await COLLECTION.doc(name).set(documentObject)
     } catch (e) {
         console.log(e)
     }
