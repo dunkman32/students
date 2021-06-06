@@ -7,7 +7,8 @@ import {
     StyledForm,
     StyledInput,
     InputWrapper,
-    ErrorWrapper
+    ErrorWrapper,
+    LoginText
 } from './styles'
 
 interface ErrState {
@@ -36,6 +37,7 @@ const SignIn = () => {
 
     return (
         <StyledDiv>
+            <LoginText>სტუდენტის პორტალი</LoginText>
             <StyledForm
                 name="normal_login"
                 className="login-form"

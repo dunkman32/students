@@ -7,13 +7,14 @@
     margin: 0 0 1rem 0;
 }
 .account-settings .user-profile .user-avatar img {
-    width: 90px;
-    height: 90px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    border-radius: 100px;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 .account-settings .user-profile h5.user-name {
+    color: snow;
+    font-size: 25px;
     margin: 0 0 0.5rem 0;
 }
 .account-settings .user-profile h6.user-email {
@@ -22,32 +23,24 @@
     font-weight: 400;
     color: #9fa8b9;
 }
-.account-settings .about {
-    margin: 2rem 0 0 0;
-    text-align: center;
-}
-.account-settings .about h5 {
-    margin: 0 0 15px 0;
-    color: #007ae1;
-}
-.account-settings .about p {
-    font-size: 0.825rem;
-}
+
 .form-control {
     border: 1px solid #cfd1d8;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    font-size: .825rem;
-    background: #ffffff;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: snow;
     color: #2e323c;
 }
 
 .card {
-    background: #ffffff;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
-    border: 0;
-    margin-bottom: 1rem;
+    box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.1);
+    border: none;
+    margin-bottom: 30px;
+}
+
+#user-card {
+    background: #1F1C2C; 
+    background: -webkit-linear-gradient(to bottom, #928DAB, #1F1C2C); 
+    background: linear-gradient(to bottom, #928DAB, #1F1C2C);
 }

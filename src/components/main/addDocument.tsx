@@ -42,7 +42,7 @@ const AddModal = () => {
             setVisible(false);
             form.resetFields();
         }).catch((err) => console.log(err))
-    }, [user, file]);
+    }, [user, file, form]);
 
     const onFileChoose = (e: any) => {
         const files = e.target.files;
@@ -57,6 +57,8 @@ const AddModal = () => {
                 </Button>
             </Tooltip>
             <Modal
+                okText={'ატვირთვა'}
+                cancelText={'დახურვა'}
                 title="დოკუმენტის ატვირვა"
                 centered
                 visible={visible}
@@ -70,10 +72,18 @@ const AddModal = () => {
                     wrapperCol={{ span: 14 }}
                     layout="horizontal"
                 >
-                    <Form.Item name={'ფაილი'} label="ფაილი" rules={[{ required: true, message: 'აირჩიეთ ფაილი' }]}>
+                    <Form.Item
+                        name={'ფაილი'}
+                        label="ფაილი"
+                        rules={[{ required: true, message: 'აირჩიეთ ფაილი' }]}
+                    >
                         <Input type='file' onChange={onFileChoose} />
                     </Form.Item>
-                    <Form.Item name={'desc'} label="კომენტარი" rules={[{ required: true, message: 'შეიყვანეთ კომენტარი' }]}>
+                    <Form.Item
+                        name={'desc'}
+                        label="კომენტარი"
+                        rules={[{ required: true, message: 'შეიყვანეთ კომენტარი' }]}
+                    >
                         <Input placeholder={'შეიტანეთ კომენტარი...'} />
                     </Form.Item>
                 </Form>

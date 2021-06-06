@@ -8,6 +8,7 @@ const StyledDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `;
 const StyledForm = styled(Form)`
   position: relative;
@@ -69,11 +70,21 @@ const ErrorWrapper = styled.div`
   color: red; 
 `;
 
+const LoginText = styled.div`
+  position: relative;
+  bottom: 50px;
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #212738;
+`;
+
 export {
   StyledDiv,
   StyledForm,
   StyledInput,
   StyledButton,
   InputWrapper,
-  ErrorWrapper
-}
+  ErrorWrapper,
+  LoginText
+};
