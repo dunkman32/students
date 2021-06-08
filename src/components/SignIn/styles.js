@@ -10,14 +10,15 @@ const StyledDiv = styled.div`
   justify-content: center;
   flex-direction: column;
 `;
+
 const StyledForm = styled(Form)`
   position: relative;
-  width: 30rem;
   box-shadow: -1px -1px 6px 1px rgba(0,0,0,0.1);
   background-color: #f8f9fa;
   padding: 3rem;
   border-radius: 10px;
   z-index: 1;
+  margin: 20px;
 `;
 
 const StyledInput = styled(Input)`
@@ -72,6 +73,7 @@ const ErrorWrapper = styled.div`
 
 const LoginText = styled.div`
   position: relative;
+  top: -5px;
   bottom: 50px;
   font-size: 25px;
   font-weight: bold;
