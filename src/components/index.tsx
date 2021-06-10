@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from '../components/main'
+import Footer from '../components/Footer'
 import SignIn from '../components/SignIn'
 import { auth } from '../adapters/helpers'
 import { getStudent } from '../adapters/users'
@@ -35,6 +36,7 @@ const Components = () => {
                     <Main />
                 </Route>
             </Switch>
+            <Footer />
         </Router>
     ) :
         (<SignIn />)
