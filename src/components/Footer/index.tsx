@@ -12,7 +12,10 @@ const FooterContainer = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0
+  right: 0;
+  @media (max-width: 768px) {
+    position: relative
+  }
 `;
 
 const A = styled.a`
