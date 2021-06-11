@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from '../components/main'
 import Footer from '../components/Footer'
 import SignIn from '../components/SignIn'
