@@ -1,45 +1,12 @@
 import './style.css'
-import { Fragment } from 'react';
-import { useSelector } from "react-redux";
-import styled from 'styled-components';
-import { selectors } from '../../modules/Auth';
-import SignOut from '../SignOut';
-import AddModal from './addDocument'
-import ChangePassword from "../changePassword/changePasswordModal";
-import {Dropdown, Menu, Button} from "antd";
-
-const menu = (
-    <Menu>
-        <Menu.Item>
-            <AddModal />
-        </Menu.Item>
-        <Menu.Item>
-            <ChangePassword />
-        </Menu.Item>
-        <Menu.Divider />
-        <SignOut />
-    </Menu>
-);
-
-const DropdownMenu = () => (
-    <Dropdown key="more" overlay={menu}>
-        <Button className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-            პარამეტრები
-        </Button>
-    </Dropdown>
-);
-
+import {useSelector} from "react-redux";
+import {selectors} from '../../modules/Auth';
+import Footer from "../Footer";
 
 const Index = () => {
     const user = useSelector(selectors.selectUser);
     return (
-        <Fragment>
-            <HeaderContainer>
-                <div style={{ color: '#FFF', fontSize: 20 }}>სტუდენტის პორტალი</div>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <DropdownMenu />
-                </div>
-            </HeaderContainer>
+        <>
             <div className="container" style={{ width: '95%', marginTop: 50 }}>
                 <div className="row gutters">
                     <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -106,19 +73,10 @@ const Index = () => {
                     </div>
                 </div>
             </div>
-        </Fragment>
+            <Footer/>
+        </>
     );
 };
 
 export default Index;
 
-const HeaderContainer = styled.div`
-    height: 4rem;
-    background-color: #212738;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    box-shadow: 0 0 20px 0 rgba(69, 90, 100, .9);
-`;

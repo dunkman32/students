@@ -1,22 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
-import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {actions, selectors} from "../../modules/Documents";
-import { selectors as authSelector} from "../../modules/Auth";
+import {selectors as authSelector} from "../../modules/Auth";
 import TableComponent from './table';
-import User from './user';
-import { Tabs } from 'antd';
+import {Tabs} from 'antd';
+
 const { TabPane } = Tabs;
 
 const Container = styled.div`
   box-shadow: -1px -1px 6px 1px rgba(0,0,0,0.1);
   width: 96%;
   position: relative;
-  margin: 10rem auto 0;
+  margin: 2rem auto 0;
   background-color: #282c34;
   padding: 5rem;
   border-radius: 20px;
+  @media (max-width: 992px) {
+    padding: 1rem;
+  }
 `
 
 enum Status {
@@ -37,16 +39,15 @@ const Index = () => {
 
     return (
         <Container>
-            <User user={user} />
             <Tabs
                 tabBarStyle={{
                     color: '#fefae0'
                 }}
                 onChange={setStatus}>
-                <TabPane tab={'All'} key={''} />
-                <TabPane tab={Status.Pending} key={Status.Pending} />
-                <TabPane tab={Status.Approved} key={Status.Approved}/>
-                <TabPane tab={Status.Rejected} key={Status.Rejected}/>
+                <TabPane tab={'ყველა'} key={''} />
+                <TabPane tab={'განსახილი'} key={Status.Pending} />
+                <TabPane tab={'დადასტურებული'} key={Status.Approved}/>
+                <TabPane tab={'უარყოფილი'} key={Status.Rejected}/>
             </Tabs>
             {
                 rows && <TableComponent data={rows} />

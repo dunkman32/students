@@ -8,6 +8,7 @@ import {auth} from '../adapters/helpers'
 import {getStudent} from '../adapters/users'
 import {useDispatch, useSelector} from 'react-redux'
 import {actions, selectors} from '../modules/Auth';
+import Header from "./Header";
 
 const Components = () => {
     const user = useSelector(selectors.selectUser)
@@ -32,11 +33,11 @@ const Components = () => {
 
     return user ? (
             <Router>
+                <Header />
                 <Switch>
                     <Route path="/" exact component={Main}/>
                     <Route path={'/documents'} exact component={Document} />
                 </Switch>
-                <Footer/>
             </Router>
         ) :
         (<SignIn/>)
