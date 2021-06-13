@@ -65,12 +65,10 @@ const ChangePassword = () => {
 
     return (
         <Fragment>
-            <Tooltip title="შეცვალე პაროლი" placement="bottom">
-                <Button onClick={() => setVisible(true)} style={{width: '100%'}} type="primary"
-                        icon={<ToolTwoTone style={{fontSize: 15}}/>} size={'middle'}>
-                    შეცვალე პაროლი
-                </Button>
-            </Tooltip>
+            <Button onClick={() => setVisible(true)} style={{width: '100%'}} type="primary"
+                    icon={<ToolTwoTone style={{fontSize: 15}}/>} size={'middle'}>
+                შეცვალე პაროლი
+            </Button>
             <M
                 style={{
                     borderRadius: 10

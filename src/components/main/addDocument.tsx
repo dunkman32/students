@@ -1,11 +1,11 @@
-import { useCallback, useState, Fragment } from 'react';
-import { Button, Form, Input, Modal, Tooltip } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
-import { addDocument } from '../../adapters/upload';
-import { useSelector } from "react-redux";
-import { selectors } from '../../modules/Auth';
+import {useCallback, useState, Fragment} from 'react';
+import {Button, Form, Input, Modal, Tooltip} from 'antd';
+import {UploadOutlined} from '@ant-design/icons';
+import {addDocument} from '../../adapters/upload';
+import {useSelector} from "react-redux";
+import {selectors} from '../../modules/Auth';
 
-const { TextArea } = Input;
+const {TextArea} = Input;
 
 const AddModal = () => {
     const [form] = Form.useForm();
@@ -53,11 +53,10 @@ const AddModal = () => {
 
     return (
         <Fragment>
-            <Tooltip title="დოკუმენტის ატვირთვა" placement="bottom">
-                <Button onClick={() => setVisible(true)} style={{ width: '100%' }} type="primary" icon={<UploadOutlined style={{ fontSize: 15 }} />} size={'middle'}>
-                    ატვირთვა
-                </Button>
-            </Tooltip>
+            <Button onClick={() => setVisible(true)} style={{width: '100%'}} type="primary"
+                    icon={<UploadOutlined style={{fontSize: 15}}/>} size={'middle'}>
+                ატვირთვა
+            </Button>
             <Modal
                 okText={'ატვირთვა'}
                 cancelText={'დახურვა'}
@@ -66,27 +65,30 @@ const AddModal = () => {
                 visible={visible}
                 onOk={onSubmit}
                 confirmLoading={confirmLoading}
-                onCancel={() => { setVisible(false); form.resetFields() }}
+                onCancel={() => {
+                    setVisible(false);
+                    form.resetFields()
+                }}
                 width={700}>
                 <Form
                     form={form}
-                    labelCol={{ span: 4 }}
-                    wrapperCol={{ span: 14 }}
+                    labelCol={{span: 4}}
+                    wrapperCol={{span: 14}}
                     layout="horizontal"
                 >
                     <Form.Item
                         name={'ფაილი'}
                         label="ფაილი"
-                        rules={[{ required: true, message: 'აირჩიეთ ფაილი' }]}
+                        rules={[{required: true, message: 'აირჩიეთ ფაილი'}]}
                     >
-                        <Input type='file' onChange={onFileChoose} />
+                        <Input type='file' onChange={onFileChoose}/>
                     </Form.Item>
                     <Form.Item
                         name={'desc'}
                         label="კომენტარი"
-                        rules={[{ required: true, message: 'შეიყვანეთ კომენტარი' }]}
+                        rules={[{required: true, message: 'შეიყვანეთ კომენტარი'}]}
                     >
-                        <TextArea showCount maxLength={100} placeholder={'შეიყვანეთ კომენტარი...'} />
+                        <TextArea showCount maxLength={100} placeholder={'შეიყვანეთ კომენტარი...'}/>
                     </Form.Item>
                 </Form>
             </Modal>
