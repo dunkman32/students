@@ -1,4 +1,4 @@
-import {Button, Tooltip} from "antd";
+import {Button} from "antd";
 import {LogoutOutlined} from "@ant-design/icons";
 import {useDispatch} from "react-redux";
 import {auth} from "../../adapters/helpers";

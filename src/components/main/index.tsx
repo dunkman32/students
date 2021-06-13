@@ -6,9 +6,7 @@ import { selectors } from '../../modules/Auth';
 import SignOut from '../SignOut';
 import AddModal from './addDocument'
 import ChangePassword from "../changePassword/changePasswordModal";
-import {Dropdown, Menu, Tooltip} from "antd";
-import {SettingFilled} from "@ant-design/icons";
-
+import {Dropdown, Menu, Button} from "antd";
 
 const menu = (
     <Menu>
@@ -23,21 +21,11 @@ const menu = (
     </Menu>
 );
 
-const Settings = styled(SettingFilled)`
-  cursor: pointer;
-  color: #fff;
-  font-size: 24px;
-  transform: rotate(-90deg);
-  transition: all .5s ease-in-out;
-  :hover {
-    transform: rotate(90deg);
-    transition: all .5s ease-in-out;
-  }
-`
-
 const DropdownMenu = () => (
     <Dropdown key="more" overlay={menu}>
-               <Settings />
+        <Button className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+            პარამეტრები
+        </Button>
     </Dropdown>
 );
 
