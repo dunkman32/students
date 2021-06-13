@@ -14,11 +14,10 @@ const SignOut = () => {
         ).catch((e) => console.log(e))
     }
     return (
-        <Tooltip title="გამოსვლა">
-            <Button onClick={signOut} style={{ width: '100%' }} type="primary" icon={<LogoutOutlined style={{ fontSize: 15 }} />} size={'middle'}>
-                გასვლა
-            </Button>
-        </Tooltip>
+        <Button onClick={signOut} style={{width: '100%'}} type="primary" icon={<LogoutOutlined style={{fontSize: 15}}/>}
+                size={'middle'}>
+            გასვლა
+        </Button>
     )
 };
 
