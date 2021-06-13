@@ -1,6 +1,6 @@
 import {Fragment, useState} from 'react';
-import {Button, Dropdown, Form, Input, Modal, notification, Tooltip, Menu} from 'antd';
-import {ToolTwoTone, EllipsisOutlined} from '@ant-design/icons';
+import {Button, Form, Input, Modal, notification} from 'antd';
+import {ToolTwoTone} from '@ant-design/icons';
 import {changePassword} from '../../adapters/users'
 import styled from "styled-components";
 

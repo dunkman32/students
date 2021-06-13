@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import {useSelector} from "react-redux";
-import {selectors} from '../../modules/Auth';
 
 const Container = styled.div`
   width: 100%;
@@ -35,15 +33,15 @@ const Img = styled.img`
   border-radius: 20px;
 `
 
-const Index = ({user}: any) => {
-    return user && (
-        <Container>
-            <FlexDiv>
-                <Img src={user.img} alt={'student'} />
-                <Username>{user.name}'s documents list</Username>
-            </FlexDiv>
-        </Container>
-    );
+const Index = ({ user }: any) => {
+  return user && (
+    <Container>
+      <FlexDiv>
+        <Img src={user.img} alt={'student'} />
+        <Username>{user.name}'s documents list</Username>
+      </FlexDiv>
+    </Container>
+  );
 }
 
 export default Index;

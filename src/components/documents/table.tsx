@@ -5,7 +5,6 @@ import { Img, StyledTable } from "./styles";
 import { Popconfirm, Tag } from "antd";
 import { SmileTwoTone, MehTwoTone } from "@ant-design/icons";
 import { handleApprove, handleRemove } from "../../adapters/documents";
-import { useHistory } from "react-router-dom";
 
 enum Status {
   Pending = "Pending",
@@ -62,7 +61,7 @@ const TableComponent = ({
             <Img src={row.file} alt="document" />
           </ImagePopup>
         ) : (
-          <a target={"_blank"} href={row.file}>
+          <a target={"_blank"} rel="noreferrer" href={row.file}>
             <Img src={row.file} alt="document" />
           </a>
         );

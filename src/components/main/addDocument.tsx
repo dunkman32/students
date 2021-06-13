@@ -1,5 +1,5 @@
 import {useCallback, useState, Fragment} from 'react';
-import {Button, Form, Input, Modal, Tooltip} from 'antd';
+import {Button, Form, Input, Modal} from 'antd';
 import {UploadOutlined} from '@ant-design/icons';
 import {addDocument} from '../../adapters/upload';
 import {useSelector} from "react-redux";
