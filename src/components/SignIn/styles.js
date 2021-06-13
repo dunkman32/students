@@ -2,23 +2,22 @@ import styled from "styled-components";
 import { Button, Form, Input } from "antd";
 
 const StyledDiv = styled.div`
+  display: flex;
   background: linear-gradient(#fefae0, #e5e5e5);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 `;
 
 const StyledForm = styled(Form)`
-  position: relative;
   box-shadow: -1px -1px 6px 1px rgba(0,0,0,0.1);
   background-color: #f8f9fa;
-  padding: 3rem;
   border-radius: 10px;
   z-index: 1;
-  margin: 20px;
+  padding: 20px 20px;
+  min-width: 300px;
 `;
 
 const StyledInput = styled(Input)`
@@ -26,7 +25,7 @@ const StyledInput = styled(Input)`
   border: none;
   color: #333;
   line-height: 1.2;
-  font-size: 18px;
+  font-size: 14px;
   display: block;
   width: 100%;
   background: 0 0;
@@ -35,7 +34,6 @@ const StyledInput = styled(Input)`
 `
 const InputWrapper = styled.div`
   width: 100%;
-  position: relative;
   background-color: #f7f7f7;
   border: 1px solid #e6e6e6;
   border-radius: 4px;
