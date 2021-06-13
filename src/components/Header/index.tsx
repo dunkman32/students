@@ -4,7 +4,7 @@ import AddModal from "../main/addDocument";
 import ChangePassword from "../changePassword/changePasswordModal";
 import SignOut from "../SignOut";
 import {Link} from "react-router-dom";
-
+import logo from '../../../../students/src/static/images/logo.png'
 
 const HeaderContainer = styled.div`
   height: 4rem;
@@ -47,12 +47,35 @@ const DropdownMenu = () => (
 );
 
 
+const StyedLink = styled(Link)`
+  display: flex;
+  gap: .325rem;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Span = styled.span`
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #FFF;
+  text-transform: uppercase;
+  @media (max-width: 560px) {
+    display: none;
+  }
+`;
+
+const LogoIMG = styled.img`
+  width: 50px;
+`;
+
 const Header = () => {
     return (
         <HeaderContainer>
-            <Link to={'/'}>
-                <div style={{ color: '#FFF', fontSize: 20 }}>სტუდენტის პორტალი</div>
-            </Link>
+            <StyedLink to={"/"}>
+                <LogoIMG src={logo} alt='logo' />
+                <Span>სტუდენტური პორტალი</Span>
+            </StyedLink>
+
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <DropdownMenu />
             </div>
