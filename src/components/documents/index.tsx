@@ -45,7 +45,7 @@ const Index = () => {
                 }}
                 onChange={setStatus}>
                 <TabPane tab={'ყველა'} key={''} />
-                <TabPane tab={'განსახილი'} key={Status.Pending} />
+                <TabPane tab={'განუხილავი'} key={Status.Pending} />
                 <TabPane tab={'დადასტურებული'} key={Status.Approved}/>
                 <TabPane tab={'უარყოფილი'} key={Status.Rejected}/>
             </Tabs>
