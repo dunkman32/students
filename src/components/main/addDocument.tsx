@@ -52,7 +52,7 @@ const AddModal = () => {
     return (
         <Fragment>
             <Tooltip title="დოკუმენტის ატვირთვა" placement="bottom">
-                <Button onClick={() => setVisible(true)} style={{ marginRight: 10 }} type="primary" icon={<UploadOutlined style={{ fontSize: 15 }} />} size={'middle'}>
+                <Button onClick={() => setVisible(true)} style={{ width: '100%' }} type="primary" icon={<UploadOutlined style={{ fontSize: 15 }} />} size={'middle'}>
                     ატვირთვა
                 </Button>
             </Tooltip>

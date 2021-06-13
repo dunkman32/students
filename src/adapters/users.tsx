@@ -1,4 +1,4 @@
-import {firestore} from "./helpers"
+import {firestore, auth, base} from "./helpers"
 import {useCollectionData} from 'react-firebase-hooks/firestore';
 const COLLECTION = firestore.collection("students")
 
@@ -46,4 +46,18 @@ export const updateStudent = (data: any) => {
 
 export const getStudent = (id: string) => COLLECTION.doc(id).get()
 
+const reauthenticate = (currentPassword: string) => {
+    const user: any = auth.currentUser;
+    const cred = base.auth.EmailAuthProvider.credential(user.email, currentPassword);
+    return user.reauthenticateWithCredential(cred);
+}
 
+export const changePassword = (currentPassword: string, newPassword: string) => {
+    return reauthenticate(currentPassword).then(() => {
+        const user: any = auth.currentUser;
+        user.updatePassword(newPassword).then(() => {
+            console.log("Password updated!");
+        }).catch((error: any) => { console.log(error); });
+        return true
+    })
+}

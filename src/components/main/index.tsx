@@ -5,15 +5,52 @@ import styled from 'styled-components';
 import { selectors } from '../../modules/Auth';
 import SignOut from '../SignOut';
 import AddModal from './addDocument'
+import ChangePassword from "../changePassword/changePasswordModal";
+import {Dropdown, Menu, Tooltip} from "antd";
+import {SettingFilled} from "@ant-design/icons";
+
+
+const menu = (
+    <Menu>
+        <Menu.Item>
+            <AddModal />
+        </Menu.Item>
+        <Menu.Item>
+            <ChangePassword />
+        </Menu.Item>
+        <Menu.Divider />
+        <SignOut />
+    </Menu>
+);
+
+const Settings = styled(SettingFilled)`
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+  transform: rotate(-90deg);
+  transition: all .5s ease-in-out;
+  :hover {
+    transform: rotate(90deg);
+    transition: all .5s ease-in-out;
+  }
+`
+
+const DropdownMenu = () => (
+    <Dropdown key="more" overlay={menu}>
+               <Settings />
+    </Dropdown>
+);
+
 
 const Index = () => {
     const user = useSelector(selectors.selectUser);
-
     return (
         <Fragment>
             <HeaderContainer>
                 <div style={{ color: '#FFF', fontSize: 20 }}>სტუდენტის პორტალი</div>
-                <span style={{ display: 'flex', alignItems: 'center' }}><AddModal /><SignOut /></span>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <DropdownMenu />
+                </div>
             </HeaderContainer>
             <div className="container" style={{ width: '75%', marginTop: 50 }}>
                 <div className="row gutters">
