@@ -5,6 +5,8 @@ import { addDocument } from '../../adapters/upload';
 import { useSelector } from "react-redux";
 import { selectors } from '../../modules/Auth';
 
+const { TextArea } = Input;
+
 const AddModal = () => {
     const [form] = Form.useForm();
     const user = useSelector(selectors.selectUser)
@@ -84,7 +86,7 @@ const AddModal = () => {
                         label="კომენტარი"
                         rules={[{ required: true, message: 'შეიყვანეთ კომენტარი' }]}
                     >
-                        <Input placeholder={'შეიტანეთ კომენტარი...'} />
+                        <TextArea showCount maxLength={100} placeholder={'შეიყვანეთ კომენტარი...'} />
                     </Form.Item>
                 </Form>
             </Modal>

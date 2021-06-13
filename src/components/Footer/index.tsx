@@ -1,6 +1,4 @@
-import React from "react";
 import styled from "styled-components";
-import {HeartTwoTone} from '@ant-design/icons';
 
 const FooterContainer = styled.div`
   height: 4rem;
@@ -13,28 +11,22 @@ const FooterContainer = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  @media (max-width: 768px) {
+  color: #666;
+  font-size: 12px;
+  opacity: .7;
+  @media (max-width: 992px) {
     position: relative
   }
 `;
 
-const A = styled.a`
-  text-decoration: none;
-  margin-right: .5rem;
-  font-weight: 500;
-  font-size: 1.25rem;
-  color: rgba(235, 47, 150, .3);
-`
-
 const Footer = () => {
     return (
         <FooterContainer>
-            <div>
-                <A href={'https://github.com/dunkman32/students'}>
-                    made by noZZa, Givi & Lasha with
-                </A>
-                <HeartTwoTone style={{fontSize: '1.25rem', position: 'relative', bottom: 4}} twoToneColor="#eb2f96"/>
-            </div>
+            <span>
+                Made with <i style={{ color: 'red' }}>♥</i> by <a href="https://github.com/dunkman32/students" target="_blank" rel="noreferrer">
+                    noZZa, primulax &#38; lasha
+                </a>
+            </span>
         </FooterContainer>
     )
 }

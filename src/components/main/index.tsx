@@ -52,7 +52,7 @@ const Index = () => {
                     <DropdownMenu />
                 </div>
             </HeaderContainer>
-            <div className="container" style={{ width: '75%', marginTop: 50 }}>
+            <div className="container" style={{ width: '95%', marginTop: 50 }}>
                 <div className="row gutters">
                     <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                         <div className="card h-100" id="user-card">
@@ -84,6 +84,12 @@ const Index = () => {
                                         <div className="form-group">
                                             <label htmlFor="fullName" style={{ marginBottom: 5, fontSize: 15, cursor: 'pointer' }}>კამპუსი</label>
                                             <input type="text" className="form-control" id="fullName" readOnly value={user.campus} />
+                                        </div>
+                                    </div>
+                                    <div style={{ marginBottom: 15 }}>
+                                        <div className="form-group">
+                                            <label htmlFor="fullName" style={{ marginBottom: 5, fontSize: 15, cursor: 'pointer' }}>ბინის ნომერი</label>
+                                            <input type="text" className="form-control" id="fullName" readOnly value={user.no} />
                                         </div>
                                     </div>
 
