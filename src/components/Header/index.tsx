@@ -1,11 +1,14 @@
 import styled from "styled-components";
-import {Button, Dropdown, Menu} from "antd";
+import {Button, Dropdown, Menu, Tooltip, Badge} from "antd";
 import AddModal from "../main/addDocument";
 import ChangePassword from "../changePassword/changePasswordModal";
 import SignOut from "../SignOut";
 import {Link} from "react-router-dom";
 import logo from '../../../../students/src/static/images/logo.png'
-
+import {NotificationOutlined} from '@ant-design/icons'
+import {useCommentsStream} from '../../adapters/comments'
+import {useSelector} from "react-redux";
+import {selectors} from '../../modules/Auth';
 const HeaderContainer = styled.div`
   height: 4rem;
   background-color: #212738;
@@ -69,6 +72,8 @@ const LogoIMG = styled.img`
 `;
 
 const Header = () => {
+    const user = useSelector(selectors.selectUser);
+    const messages = useCommentsStream(user.id);
     return (
         <HeaderContainer>
             <StyedLink to={"/"}>
@@ -76,7 +81,16 @@ const Header = () => {
                 <Span>სტუდენტური პორტალი</Span>
             </StyedLink>
 
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <Tooltip title="ახალი" placement="bottom">
+                    <Link to={"/documents?status=Pending"}>
+                        <Badge count={messages?.length}>
+                            <NotificationOutlined
+                                style={{ fontSize: "1.25rem", color: "#fff", marginTop: 5 }}
+                            />
+                        </Badge>
+                    </Link>
+                </Tooltip>
                 <DropdownMenu />
             </div>
         </HeaderContainer>
