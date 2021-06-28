@@ -83,7 +83,7 @@ const Header = () => {
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <Tooltip title="ახალი" placement="bottom">
-                    <Link to={"/documents?status=Pending"}>
+                    <Link to={"/unseen"}>
                         <Badge count={messages?.length}>
                             <NotificationOutlined
                                 style={{ fontSize: "1.25rem", color: "#fff", marginTop: 5 }}

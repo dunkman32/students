@@ -9,6 +9,7 @@ import {getStudent} from '../adapters/users'
 import {useDispatch, useSelector} from 'react-redux'
 import {actions, selectors} from '../modules/Auth';
 import Header from "./Header";
+import UnSeenMessages from "./UnSeenMessages";
 
 const Components = () => {
     const user = useSelector(selectors.selectUser)
@@ -37,6 +38,7 @@ const Components = () => {
                 <Switch>
                     <Route path="/" exact component={Main}/>
                     <Route path={'/documents'} exact component={Document} />
+                    <Route path={'/unseen'} exact component={UnSeenMessages} />
                 </Switch>
             </Router>
         ) :

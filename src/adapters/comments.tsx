@@ -5,16 +5,20 @@ const COLLECTION = firestore.collection("comments")
 export const messages = () => {
     return COLLECTION
 }
-export const removeMessage = (id: string) => {
-    return COLLECTION.doc(id).delete()
-}
-
-
 interface DataType {
     comment: string,
     userId: string,
     documentId: string,
     createdAt: number,
+    id: string,
+    file: string,
+}
+
+export const unseenComment = (comment:DataType ) => {
+    return COLLECTION.doc(comment.id).update({
+        ...comment,
+        status: 'seen'
+    })
 }
 
 export const useCommentsStream = (id: string) => {
