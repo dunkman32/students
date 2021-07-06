@@ -43,28 +43,28 @@ const Index = () => {
                                     </div>
                                     <div style={{ marginBottom: 15 }}>
                                         <div className="form-group">
-                                            <label htmlFor="fullName" style={{ marginBottom: 5, fontSize: 15, cursor: 'pointer' }}>ბინის ნომერი</label>
-                                            <input type="text" className="form-control" id="fullName" readOnly value={user.no} />
+                                            <label htmlFor="no" style={{ marginBottom: 5, fontSize: 15, cursor: 'pointer' }}>ბინის ნომერი</label>
+                                            <input type="text" className="form-control" id="no" readOnly value={user.no} />
                                         </div>
                                     </div>
 
                                     <div style={{ marginBottom: 15, }}>
                                         <div className="form-group">
-                                            <label htmlFor="eMail" style={{ marginBottom: 5, fontSize: 15, cursor: 'pointer' }}>დაბადების თარიღი</label>
-                                            <input type="email" className="form-control" id="eMail" readOnly value={new Date(user.birth).toLocaleDateString('ka-GE')} />
+                                            <label htmlFor="birth" style={{ marginBottom: 5, fontSize: 15, cursor: 'pointer' }}>დაბადების თარიღი</label>
+                                            <input type="email" className="form-control" id="birth" readOnly value={new Date(user.birth).toLocaleDateString('ka-GE')} />
                                         </div>
                                     </div>
 
                                     <div style={{ marginBottom: 15 }}>
                                         <div className="form-group">
-                                            <label htmlFor="phone" style={{ marginBottom: 5, fontSize: 15, cursor: 'pointer' }}>ელ-ფოსტა</label>
-                                            <input type="text" className="form-control" id="phone" readOnly value={user.email} />
+                                            <label htmlFor="email" style={{ marginBottom: 5, fontSize: 15, cursor: 'pointer' }}>ელ-ფოსტა</label>
+                                            <input type="text" className="form-control" id="email" readOnly value={user.email} />
                                         </div>
                                     </div>
                                     <div style={{ marginBottom: 15 }}>
                                         <div className="form-group">
-                                            <label htmlFor="website" style={{ marginBottom: 5, fontSize: 15, cursor: 'pointer' }}>ტელეფონის ნომერი</label>
-                                            <input type="url" className="form-control" id="website" readOnly value={user.phoneNumber} />
+                                            <label htmlFor="tel" style={{ marginBottom: 5, fontSize: 15, cursor: 'pointer' }}>ტელეფონის ნომერი</label>
+                                            <input type="url" className="form-control" id="tel" readOnly value={user.tel} />
                                         </div>
                                     </div>
                                 </div>
