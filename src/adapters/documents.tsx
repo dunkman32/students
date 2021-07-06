@@ -20,7 +20,8 @@ interface DataType {
     username: string,
     file: any,
     desc: string,
-    createdAt: number
+    createdAt: number,
+    month: number
 }
 
 export const useMessagesStream = () => {
